@@ -25,44 +25,49 @@ import org.hibernate.Session;
 public class CoreFacade<T> extends AbstractFacade<T>
         implements CoreFacadeLocal<T>, CoreFacadeRemote<T> {
 
+    public CoreFacade(Class<?> classEntity){
+        super(classEntity);
+    }
+    
+    public CoreFacade(){}
     @Override
     public long save(T t) {
-        return 0l;
+        return super.save(t);
     }
 
     @Override
     public long edit(T t) {
-        return 0l;
+        return super.edit(t);
     }
 
     @Override
     public long delete(T t) {
-        return 0l;
+        return super.delete(t);
     }
 
     @Override
     public long delete(Integer t) {
-        return 0l;
+        return super.delete(t);
     }
 
     @Override
     public T findByAttribute(String attr, String val) {
-        return null;
+        return super.findByAttribute(attr, val);
     }
 
     @Override
     public T findById(Integer val) {
-        return null;
+        return super.findById(val);
     }
 
     @Override
     public List<T> findAllByAttribute(String attr, String val) {
-        return null;
+        return super.findAllByAttribute(attr, val);
     }
 
     @Override
     public List<T> find() {
-        return null;
+        return super.find();
     }
     
     @Override
