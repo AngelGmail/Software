@@ -17,18 +17,26 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hibernateVersion>5.2.6.Final</hibernateVersion>
+        <hibernateGroupId>org.hibernate</hibernateGroupId>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>${hibernateGroupId}</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.3.1.Final</version>
+            <version>${hibernateVersion}</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>${hibernateGroupId}</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>4.3.1.Final</version>
+            <version>${hibernateVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>${hibernateGroupId}</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernateVersion}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -7,6 +7,10 @@ package com.venta.sistema.core.ejb;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @param<T>
@@ -26,7 +30,7 @@ public abstract class AbstractFacade<T> {
     public long save(T t) {
         long record = 0l;
         try {
-            getEntityManager().persist(t);
+            getSession().save(t);
             record = System.currentTimeMillis();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
@@ -37,7 +41,7 @@ public abstract class AbstractFacade<T> {
     public long edit(T t) {
         long record = 0l;
         try {
-            getEntityManager().merge(t);
+            getSession().update(t);
             record = System.currentTimeMillis();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
@@ -48,7 +52,7 @@ public abstract class AbstractFacade<T> {
     public long delete(T t) {
         long record = 0l;
         try {
-            getEntityManager().remove(t);
+            getSession().remove(t);
             record = System.currentTimeMillis();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
@@ -59,7 +63,7 @@ public abstract class AbstractFacade<T> {
     public long delete(Integer t) {
         long record = 0l;
         try {
-            getEntityManager().remove(findById(t));
+            getSession().remove(findById(t));
             record = System.currentTimeMillis();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
@@ -70,9 +74,12 @@ public abstract class AbstractFacade<T> {
     public T findByAttribute(String attr, String val) {
         String search = " t where t." + attr + " like %" + val + "%;";
         try {
-            return (T) getEntityManager()
-                    .createNativeQuery("select * from " + classEntity.getName() + search).getSingleResult();
-        } catch (Throwable tr) {
+            getEntityManager().unwrap( Session.class )
+                      .createCriteria( classEntity )
+                               .list();
+//            return (T) getSession().createCriteria(classEntity)
+//                    .add(Restrictions.ilike(attr, val, MatchMode.ANYWHERE)).uniqueResult();
+        } catch (HibernateException tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
         }
         return null;
@@ -81,7 +88,7 @@ public abstract class AbstractFacade<T> {
     public T findById(Integer val) {
         long record = 0l;
         try {
-            return (T) getEntityManager().find(classEntity, val);
+            return (T) getSession().find(classEntity, val);
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
         }
@@ -91,8 +98,8 @@ public abstract class AbstractFacade<T> {
     public List<T> findAllByAttribute(String attr, String val) {
         String search = " t where t." + attr + " like %" + val + "%;";
         try {
-            return (List<T>) getEntityManager()
-                    .createNativeQuery("select * from " + classEntity.getName() + search).getResultList();
+            return (List<T>) getSession().createCriteria(classEntity)
+                    .add(Restrictions.ilike(attr, val, MatchMode.ANYWHERE)).list();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
         }
@@ -100,15 +107,16 @@ public abstract class AbstractFacade<T> {
     }
 
     public List<T> find() {
-       // String search = " t where t." + attr + " like %" + val + "%;";
+        // String search = " t where t." + attr + " like %" + val + "%;";
         try {
-            return (List<T>) getEntityManager()
-                    .createNativeQuery("select * from " + classEntity.getName() +" t").getResultList();
-        } catch (Throwable tr) {
+            return (List<T>) getSession().createCriteria(classEntity).list();
+        } catch (HibernateException tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
         }
         return null;
     }
 
     public abstract EntityManager getEntityManager();
+
+    public abstract Session getSession();
 }
