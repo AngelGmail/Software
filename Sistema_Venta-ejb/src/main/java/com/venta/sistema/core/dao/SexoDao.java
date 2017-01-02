@@ -15,6 +15,7 @@ import javax.ejb.EJB;
  *
  * @author angel
  */
+
 public class SexoDao extends CoreFacade<Sexo>{
 
     @EJB

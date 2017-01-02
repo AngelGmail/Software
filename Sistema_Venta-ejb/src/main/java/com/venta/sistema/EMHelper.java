@@ -5,34 +5,42 @@
  */
 package com.venta.sistema;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Singleton;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.FlushModeType;
+import javax.persistence.Persistence;
 
 /**
  *
  * @author angel
  */
-@Singleton
 public class EMHelper {
 
-    private static ThreadLocal<EntityManager> thread;
+    private static  ThreadLocal<EntityManager> THREAD;
+    private static  EntityManagerFactory EMF;
 
-    @PersistenceUnit(unitName = "Venta-PU", name = "Prod")
-    private static EntityManager entityManager;
+    static {
+        try {
+            EMF = Persistence.createEntityManagerFactory("Venta_PU");
+            THREAD = new ThreadLocal<>();
+        } catch (ExceptionInInitializerError e) {
+            System.out.println(e.getCause() + " -$- " + e.getLocalizedMessage());
+        }
+    }
 
     public static EntityManager getEntityManager() {
-        thread = new ThreadLocal<>();
-        EntityManager em = thread.get();
+        EntityManager em = THREAD.get();
         if (em == null) {
-            thread.set(entityManager);
+            em = EMF.createEntityManager();
+            em.setFlushMode(FlushModeType.COMMIT);
+            THREAD.set(em);
         }
-        return thread.get();
+        return THREAD.get();
     }
-    
-    public static void close(){
+
+    public static void close() {
         EntityManager em = null;
-        thread.set(em);
+        THREAD.set(em);
     }
 }

@@ -31,7 +31,6 @@
             <groupId>${hibernateGroupId}</groupId>
             <artifactId>hibernate-jpamodelgen</artifactId>
             <version>${hibernateVersion}</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>${hibernateGroupId}</groupId>
@@ -45,17 +44,16 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.hynnet/oracle-driver-ojdbc6 -->
-        <dependency>
-            <groupId>com.hynnet</groupId>
-            <artifactId>oracle-driver-ojdbc</artifactId>
-            <version>12.1.0.2</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/cn.easyproject/ojdbc7 -->
+        <dependency>
+            <groupId>cn.easyproject</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0.2.0</version>
         </dependency>
     </dependencies>
 

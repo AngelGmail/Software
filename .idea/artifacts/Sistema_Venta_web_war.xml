@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Sistema_Venta-web:war">
+    <output-path>$PROJECT_DIR$/Sistema_Venta-web/target</output-path>
+    <root id="archive" name="Sistema_Venta-web-1.0.0.war">
+      <element id="artifact" artifact-name="Sistema_Venta-web:war exploded" />
+    </root>
+  </artifact>
+</component>

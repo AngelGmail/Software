@@ -18,7 +18,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public abstract class AbstractFacade<T> {
 
-    private Class<?> classEntity;
+    protected Class<?> classEntity;
 
     public AbstractFacade(Class<?> classEntity) {
         this.classEntity = classEntity;
@@ -119,4 +119,8 @@ public abstract class AbstractFacade<T> {
     public abstract EntityManager getEntityManager();
 
     public abstract Session getSession();
+
+    public void setClassEntity(Class<?> classEntity){
+        this.classEntity = classEntity;
+    }
 }

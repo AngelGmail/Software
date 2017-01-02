@@ -30,5 +30,6 @@ public interface CoreFacadeRemote <T>{
     List<T> findAllByAttribute(String attr, String val);
 
     List<T> find();
-    
+
+    void setClassEntity(Class<?> classEntity);
 }

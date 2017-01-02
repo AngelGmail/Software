@@ -20,32 +20,27 @@
     </properties>
     
     <dependencies>
-         <!-- https://mvnrepository.com/artifact/javax.javaee7 -->
+        <!-- https://mvnrepository.com/artifact/javax.javaee7 -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>Sistema_Venta-ejb</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>6.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.primefaces.themes/ui-lightness -->
-        <!-- https://mvnrepository.com/artifact/org.primefaces.extensions/primefaces-extensions -->
+        </dependency>  
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
             <artifactId>primefaces-extensions</artifactId>
             <version>6.0.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.primefaces.themes/south-street -->
-        <!-- https://mvnrepository.com/artifact/org.primefaces.themes/all-themes -->
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>1.0.10</version>
         </dependency>
     </dependencies>
 

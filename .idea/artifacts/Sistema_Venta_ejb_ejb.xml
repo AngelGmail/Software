@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="Sistema_Venta-ejb:ejb">
+    <output-path>$PROJECT_DIR$/Sistema_Venta-ejb/target</output-path>
+    <root id="archive" name="Sistema_Venta-ejb-1.0.0.jar">
+      <element id="artifact" artifact-name="Sistema_Venta-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

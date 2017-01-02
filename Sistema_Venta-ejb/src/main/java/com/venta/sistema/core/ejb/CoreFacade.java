@@ -79,4 +79,9 @@ public class CoreFacade<T> extends AbstractFacade<T>
     public Session getSession(){
         return (Session) getEntityManager();
     }
+
+    @Override
+    public void setClassEntity(Class<?> classEntity){
+        super.classEntity = classEntity;
+    }
 }

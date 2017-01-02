@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="Sistema_Venta-ear:ear">
+    <output-path>$PROJECT_DIR$/Sistema_Venta-ear/target</output-path>
+    <root id="archive" name="Sistema_Venta-ear-1.0.0.ear">
+      <element id="artifact" artifact-name="Sistema_Venta-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

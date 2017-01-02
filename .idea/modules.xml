@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Sistema_Venta.iml" filepath="$PROJECT_DIR$/Sistema_Venta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sistema_Venta-ear/Sistema_Venta-ear.iml" filepath="$PROJECT_DIR$/Sistema_Venta-ear/Sistema_Venta-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sistema_Venta-ejb/Sistema_Venta-ejb.iml" filepath="$PROJECT_DIR$/Sistema_Venta-ejb/Sistema_Venta-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sistema_Venta-web/Sistema_Venta-web.iml" filepath="$PROJECT_DIR$/Sistema_Venta-web/Sistema_Venta-web.iml" />
+    </modules>
+  </component>
+</project>
