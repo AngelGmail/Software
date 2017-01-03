@@ -14,7 +14,7 @@
     <bytecodeTargetLevel>
       <module name="Sistema_Venta" target="1.5" />
       <module name="Sistema_Venta-ear" target="1.7" />
-      <module name="Sistema_Venta-ejb" target="1.7" />
+      <module name="Sistema_Venta-ejb" target="1.8" />
       <module name="Sistema_Venta-web" target="1.7" />
     </bytecodeTargetLevel>
   </component>

@@ -5,7 +5,7 @@
  */
 package com.venta.sistema.core.ejb;
 
-import com.venta.sistema.EMHelper;
+import com.venta.sistema.HibernateUtil;
 import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.LocalBean;
@@ -71,8 +71,8 @@ public class CoreFacade<T> extends AbstractFacade<T>
     }
     
     @Override
-    public EntityManager getEntityManager(){
-        return EMHelper.getEntityManager();
+    public Session getEntityManager(){
+        return(Session) HibernateUtil.getSession();
     }
     
     @Override

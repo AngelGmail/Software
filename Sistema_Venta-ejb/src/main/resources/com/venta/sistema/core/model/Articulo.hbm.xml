@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 3, 2017 5:45:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.venta.sistema.core.model.Articulo" table="ARTICULO" schema="ANGEL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="familia" class="com.venta.sistema.core.model.Familia" fetch="select">
+            <column name="FAMILIA_ID" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="45" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="25" not-null="true" unique="true" />
+        </property>
+        <property name="caduceEn" type="date">
+            <column name="CADUCE_EN" length="7" not-null="true" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="PRECIO" precision="9" not-null="true" />
+        </property>
+        <property name="actualizadoEn" type="date">
+            <column name="ACTUALIZADO_EN" length="7" not-null="true" />
+        </property>
+        <property name="actualizadoPor" type="string">
+            <column name="ACTUALIZADO_POR" length="25" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="ESTADO" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="facturaDetalles" table="FACTURA_DETALLE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ARTICULO_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.venta.sistema.core.model.FacturaDetalle" />
+        </set>
+        <set name="inventarios" table="INVENTARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ARTICULO_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.venta.sistema.core.model.Inventario" />
+        </set>
+    </class>
+</hibernate-mapping>

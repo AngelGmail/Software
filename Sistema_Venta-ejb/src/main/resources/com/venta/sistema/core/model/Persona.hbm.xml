@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 3, 2017 5:45:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.venta.sistema.core.model.Persona" table="PERSONA" schema="ANGEL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="dni" class="com.venta.sistema.core.model.Dni" fetch="select">
+            <column name="DNI_ID" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sexo" class="com.venta.sistema.core.model.Sexo" fetch="select">
+            <column name="SEXO_ID" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="nacionalidad" class="com.venta.sistema.core.model.Nacionalidad" fetch="select">
+            <column name="NACIONALIDAD_ID" precision="8" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadoCivil" class="com.venta.sistema.core.model.EstadoCivil" fetch="select">
+            <column name="ESTADO_CIVIL_ID" precision="1" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="45" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="APELLIDO" length="45" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FECHA_NACIMIENTO" length="7" not-null="true" />
+        </property>
+        <property name="actualizadoEn" type="date">
+            <column name="ACTUALIZADO_EN" length="7" not-null="true" />
+        </property>
+        <property name="actualizadoPor" type="string">
+            <column name="ACTUALIZADO_POR" length="25" not-null="true" />
+        </property>
+        <set name="facturasForDespachadoPor" table="FACTURA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DESPACHADO_POR" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.venta.sistema.core.model.Factura" />
+        </set>
+        <set name="facturasForClienteId" table="FACTURA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CLIENTE_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.venta.sistema.core.model.Factura" />
+        </set>
+        <set name="usuarioses" table="USUARIOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PERSONA_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.venta.sistema.core.model.Usuarios" />
+        </set>
+    </class>
+</hibernate-mapping>

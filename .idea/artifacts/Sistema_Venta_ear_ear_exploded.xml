@@ -11,9 +11,9 @@
         <element id="artifact" artifact-name="Sistema_Venta-ejb:ejb exploded" />
       </element>
       <element id="directory" name="lib">
-        <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.2.6.Final" />
+        <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.2.5.Final" />
         <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
-        <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.6.Final" />
+        <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.2.5.Final" />
         <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
         <element id="library" level="project" name="Maven: org.jboss:jandex:2.0.3.Final" />
         <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.0" />
@@ -28,9 +28,10 @@
         <element id="library" level="project" name="Maven: org.javassist:javassist:3.20.0-GA" />
         <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.5.4" />
         <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.1" />
-        <element id="library" level="project" name="Maven: com.hynnet:oracle-driver-ojdbc:12.1.0.2" />
+        <element id="library" level="project" name="Maven: org.hibernate:hibernate-jpamodelgen:5.2.5.Final" />
         <element id="library" level="project" name="Maven: junit:junit:4.12" />
         <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+        <element id="library" level="project" name="Maven: cn.easyproject:ojdbc7:12.1.0.2.0" />
       </element>
       <element id="archive" name="Sistema_Venta-web-1.0.0.war">
         <element id="artifact" artifact-name="Sistema_Venta-web:war exploded" />

@@ -52,7 +52,7 @@ public abstract class AbstractFacade<T> {
     public long delete(T t) {
         long record = 0l;
         try {
-            getSession().remove(t);
+            getEntityManager().remove(t);
             record = System.currentTimeMillis();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
@@ -63,7 +63,7 @@ public abstract class AbstractFacade<T> {
     public long delete(Integer t) {
         long record = 0l;
         try {
-            getSession().remove(findById(t));
+            getEntityManager().remove(findById(t));
             record = System.currentTimeMillis();
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
@@ -88,7 +88,7 @@ public abstract class AbstractFacade<T> {
     public T findById(Integer val) {
         long record = 0l;
         try {
-            return (T) getSession().find(classEntity, val);
+            return (T) getEntityManager().find(classEntity, val);
         } catch (Throwable tr) {
             System.err.println(tr.getMessage() + " " + tr.getLocalizedMessage());
         }

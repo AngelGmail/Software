@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 3, 2017 5:45:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.venta.sistema.core.model.Familia" table="FAMILIA" schema="ANGEL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="45" not-null="true" />
+        </property>
+        <property name="actualizadoEn" type="date">
+            <column name="ACTUALIZADO_EN" length="7" not-null="true" />
+        </property>
+        <property name="actualizadoPor" type="string">
+            <column name="ACTUALIZADO_POR" length="25" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="ESTADO" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="articulos" table="ARTICULO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FAMILIA_ID" precision="8" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.venta.sistema.core.model.Articulo" />
+        </set>
+    </class>
+</hibernate-mapping>
