@@ -72,12 +72,12 @@ public class CoreFacade<T> extends AbstractFacade<T>
     
     @Override
     public Session getEntityManager(){
-        return(Session) HibernateUtil.getSession();
+        return(Session) HibernateUtil.getSessionFactory();
     }
     
     @Override
     public Session getSession(){
-        return (Session) getEntityManager();
+        return (Session) HibernateUtil.getSessionFactory();
     }
 
     @Override
