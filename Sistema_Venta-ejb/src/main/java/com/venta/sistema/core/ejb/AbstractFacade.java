@@ -6,6 +6,7 @@
 package com.venta.sistema.core.ejb;
 
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -16,6 +17,7 @@ import org.hibernate.criterion.Restrictions;
  * @param<T>
  * @author angel
  */
+@Stateless
 public abstract class AbstractFacade<T> {
 
     protected Class<?> classEntity;

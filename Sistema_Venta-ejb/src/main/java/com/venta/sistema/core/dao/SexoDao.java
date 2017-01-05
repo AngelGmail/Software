@@ -10,12 +10,13 @@ import com.venta.sistema.core.ejb.CoreFacadeLocal;
 import com.venta.sistema.core.model.Sexo;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.Dependent;
 
 /**
  *
  * @author angel
  */
-
+@Dependent
 public class SexoDao extends CoreFacade<Sexo>{
 
     @EJB
